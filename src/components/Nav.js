@@ -1,42 +1,13 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import navStyle from '@/styles/navbar.module.css'
-import Image from 'next/image';
-// import Image from 'next/legacy/image';
+import navStyle from '@/styles/navbar.module.css';
+import Image from 'next/legacy/image';
 import { FaUserAlt } from "react-icons/fa";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 
 const Nav = () => {
     const pathname = usePathname()
-
-    const navBar = <>
-        <li className='rounded-full p-1 lg:py-0 lg:px-2'>
-            <Link href={'/home'} className='bg-[#319DFF] hover:bg-[#166BFF] hover:text-white'>
-                Home
-            </Link>
-        </li>
-        <li className='rounded-full p-1 lg:py-0 lg:px-2'>
-            <Link href={'/services'} className='bg-[#319DFF] hover:bg-[#166BFF] hover:text-white'>
-                services
-            </Link>
-        </li>
-        <li className='rounded-full p-1 lg:py-0 lg:px-2'>
-            <Link href={'/blog'} className='bg-[#319DFF] hover:bg-[#166BFF] hover:text-white'>
-                blog
-            </Link>
-        </li>
-        <li className='rounded-full p-1 lg:py-0 lg:px-2'>
-            <Link href={'/about'} className='bg-[#319DFF] hover:bg-[#166BFF] hover:text-white'>
-                About US
-            </Link>
-        </li>
-        <li className='rounded-full p-1 lg:py-0 lg:px-2'>
-            <Link href={'/contact'} className='bg-[#319DFF] hover:bg-[#166BFF] hover:text-white'>
-                Contact
-            </Link>
-        </li>
-    </>
 
     const navLinks = [
         {
@@ -56,14 +27,29 @@ const Nav = () => {
             href: "/about",
         },
         {
-            name: "Contacts",
-            href: "/contacts",
+            name: "Contact",
+            href: "/contact",
         },
     ]
 
+    const navBar = navLinks.map((link) => {
+        const isActive = pathname.startsWith(link.href)
+
+        return (
+            <li
+                key={link.name}
+                className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} rounded-3xl hover:bg-[#166BFF] text-white hover:text-white`}>
+                <Link href={link.href}
+                    className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} rounded-3xl hover:bg-[#166BFF] text-white hover:text-white`}>
+                    {link.name}
+                </Link>
+            </li>
+        )
+    })
+
     return (
-        <header className='pt-12'>
-            <nav className={`navbar bg-base-100 ${navStyle.nav} px-10`}>
+        <header className='pt-10'>
+            <nav className={`navbar ${navStyle.nav} px-10`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -90,19 +76,10 @@ const Nav = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 uppercase gap-3 text-white">
-                        {navLinks.map((link) => {
-                            const isActive = pathname.startsWith(link.href)
-
-                            return (
-                                <li key={link.name} className='rounded-full p-1 lg:py-0 lg:px-2'>
-                                    <Link href={link.href}
-                                        className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} hover:bg-[#166BFF] hover:text-white`}>
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            )
-                        })}
+                    <ul className="menu menu-horizontal px-1 uppercase gap-8 text-white">
+                        {
+                            navBar
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end text-[#166BFF] gap-2">
