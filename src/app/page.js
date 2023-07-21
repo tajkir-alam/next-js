@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import Home from './home/page'
 
-export default function Home() {
+export default function Index() {
   return (
     <main>
-      <h1 className='text-5xl'>Hello world</h1>
+      <Home></Home>
     </main>
   )
 }
