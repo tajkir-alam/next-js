@@ -38,9 +38,9 @@ const Nav = () => {
         return (
             <li
                 key={link.name}
-                className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} rounded-3xl hover:bg-[#166BFF] text-white hover:text-white`}>
+                className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} text-white hover:text-white rounded-3xl hover:bg-[#166BFF]`}>
                 <Link href={link.href}
-                    className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} rounded-3xl hover:bg-[#166BFF] text-white hover:text-white`}>
+                    className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} text-white hover:text-white rounded-3xl hover:bg-[#166BFF]`}>
                     {link.name}
                 </Link>
             </li>
@@ -76,7 +76,7 @@ const Nav = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 uppercase gap-8 text-white">
+                    <ul className="text-white menu menu-horizontal px-1 uppercase gap-8">
                         {
                             navBar
                         }
