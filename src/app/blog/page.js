@@ -8,7 +8,7 @@ import 'react-tabs/style/customdesign.css';
 
 const Blog = () => {
   return (
-    <section className='mt-12'>
+    <section className='mt-12 pb-96'>
       {/* Title */}
       <div className="relative">
         <div>
@@ -65,17 +65,18 @@ const Blog = () => {
 
 
             <TabPanel>
-              <p>
-                <b>Luigi</b> (<i>Japanese: ルイージ Hepburn: Ruīji, [ɾɯ.iː.dʑi̥]</i>) (<i>English: /luˈiːdʒi/;
-                  Italian: [luˈiːdʒi]</i>) is a fictional character featured in video games and related media
-                released
-              </p>
-              <p>
-                Source:{' '}
-                <a href="https://en.wikipedia.org/wiki/Luigi" target="_blank">
-                  Wikipedia
-                </a>
-              </p>
+              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <figure>
+                  <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">Shoes!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
             </TabPanel>
             <TabPanel >
               <p>

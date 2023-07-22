@@ -1,0 +1,329 @@
+{
+    "blogs": [
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Great post!",
+            "replies": [
+              "Thank you!",
+              "Glad you liked it!"
+            ]
+          },
+          {
+            "comment": "Nice content.",
+            "replies": [
+              "Thank you for reading!",
+              "Appreciate your feedback!"
+            ]
+          }
+        ],
+        "date": "15 Jul, 2023",
+        "views": 100
+      },
+      {
+        "title": "BIg data analysis: leveraging the business process",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae tristique quam. Sed faucibus felis libero, quis auctor enim laoreet ut.",
+        "image": "",
+        "authorName": "MAniruzzaman",
+        "authorImage": "",
+        "tags": ["tag3", "tag5", "tag6", "tag8", "tag9"],
+        "category": "Business",
+        "comments": [
+          {
+            "comment": "Interesting read.",
+            "replies": [
+              "Thank you for reading!",
+              "Glad you found it interesting!"
+            ]
+          },
+          {
+            "comment": "This was helpful.",
+            "replies": [
+              "You're welcome!",
+              "Happy to help!"
+            ]
+          }
+        ],
+        "date": "20 Jul, 2023",
+        "views": 75
+      }
+    ]
+  }
+  
