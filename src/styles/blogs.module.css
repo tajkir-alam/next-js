@@ -6,3 +6,9 @@
     margin-bottom: 20px;
     break-inside: avoid;
 }
+
+@media (max-width: 767px) {
+    .masonry {
+      columns: 1;
+    }
+  }
