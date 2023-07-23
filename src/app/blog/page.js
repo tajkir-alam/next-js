@@ -6,8 +6,19 @@ import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
+import { useEffect, useState } from 'react';
+import SingleBlog from '@/components/SingleBlog';
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch('/blogs.json')
+      .then(res => res.json())
+      .then(data => setBlogs(data.blogs))
+  }, [])
+
+
   return (
     <section className='mt-12 pb-96'>
       {/* Title */}
@@ -66,7 +77,7 @@ const Blog = () => {
 
 
             <TabPanel>
-              <div className={blogStyle.masonry}>
+              {/* <div className={blogStyle.masonry}>
                 <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
                     <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
@@ -241,8 +252,13 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
+              <div className={blogStyle.masonry}>
+                {
+                  blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
+                }
+              </div>
 
 
             </TabPanel>
