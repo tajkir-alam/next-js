@@ -1,0 +1,8 @@
+.masonry {
+    columns: 3;
+}
+
+.cardIs {
+    margin-bottom: 20px;
+    break-inside: avoid;
+}

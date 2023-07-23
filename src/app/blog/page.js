@@ -4,9 +4,8 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-// import styles from '@/styles/blogTab.module.css';
-// import 'react-tabs/style/react-tabs.css';
-// import 'react-tabs/style/customdesign.css';
+import 'react-tabs/style/customdesign.css';
+import blogStyle from '@/styles/blogs.module.css';
 
 const Blog = () => {
   return (
@@ -67,10 +66,10 @@ const Blog = () => {
 
 
             <TabPanel>
-              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+              <div className={blogStyle.masonry}>
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -97,9 +96,9 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -126,9 +125,9 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -155,9 +154,9 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -184,9 +183,9 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -213,9 +212,9 @@ const Blog = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
                   <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
                   </figure>
                   <div className="card-body">
                     <div className='grid grid-cols-5 gap-1 items-center'>
@@ -243,6 +242,9 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
+
+
+
             </TabPanel>
             <TabPanel >
               <p>
