@@ -6,7 +6,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 // import styles from '@/styles/blogTab.module.css';
 // import 'react-tabs/style/react-tabs.css';
-import 'react-tabs/style/customdesign.css';
+// import 'react-tabs/style/customdesign.css';
 
 const Blog = () => {
   return (
