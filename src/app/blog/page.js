@@ -1,6 +1,8 @@
 "use client";
+import moment from 'moment/moment';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 // import styles from '@/styles/blogTab.module.css';
 // import 'react-tabs/style/react-tabs.css';
@@ -65,15 +67,179 @@ const Blog = () => {
 
 
             <TabPanel>
-              <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure>
-                  <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">Shoes!</h2>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
+                  </div>
+                </div>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
+                  </div>
+                </div>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
+                  </div>
+                </div>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
+                  </div>
+                </div>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[330px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[190px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
+                  </div>
+                </div>
+                <div className="card card-compact rounded-xl w-fit bg-base-100 shadow-xl h-[420px]">
+                  <figure className='p-2'>
+                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[280px] w-full' />
+                  </figure>
+                  <div className="card-body">
+                    <div className='grid grid-cols-5 gap-1 items-center'>
+                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
+                        <p className='text-[8px] tracking-widest'>Business</p>
+                      </div>
+                      <div>
+                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
+                      </div>
+                      <div className='col-span-2 text-right text-xs'>
+                        {moment().format('D MMM, Y')}
+                      </div>
+                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
+                        <div>
+                          <FaRegEye />
+                        </div>
+                        <p className='text-xs'>
+                          127K
+                        </p>
+                      </div>
+                    </div>
+                    <h2 className="card-title text-[#606060] font-normal">
+                      BIg data analysis: leveraging the business process
+                    </h2>
                   </div>
                 </div>
               </div>
