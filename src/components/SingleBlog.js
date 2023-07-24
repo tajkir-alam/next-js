@@ -3,7 +3,6 @@ import blogStyle from '@/styles/blogs.module.css';
 import { FaRegEye } from 'react-icons/fa';
 
 const SingleBlog = ({ blog, index }) => {
-    console.log(blog);
     const { title, authorName, category, date, image, views } = blog;
 
 
