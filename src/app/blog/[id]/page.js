@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import useSWR from 'swr';
+import BlogsSlide from './BlogsSlide';
 
 const fetcher = async (url) => {
     const res = await fetch(url);
@@ -76,9 +77,10 @@ const page = ({ params }) => {
                                 </Link>
                             </div>
                         </div>
-                        <p className="my-8 px-4">
+                        <p className="mt-8 mb-16 px-4">
                             {blogs.content}
                         </p>
+                        <BlogsSlide category={blogs.category}></BlogsSlide>
                     </>
                     : <Spinner />
             }
