@@ -25,7 +25,7 @@ const SingleBlog = ({ blog, index }) => {
     return (
         <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-[8px_7px_23px_0px_rgba(0,0,0,0.09)] hover:shadow-[0px_0px_4px_6px_rgba(0,0,0,0.15)]  duration-300 ${blogStyle.cardIs}`}>
             <figure className='p-2'>
-                <img src={image} alt="Shoes" className={`rounded-xl ${(index + 1) % 2 !== 0 ? 'h-[300px]' : 'h-[150px]'} w-full`} />
+                <img src={image} alt="" className={`rounded-xl ${(index + 1) % 2 !== 0 ? 'h-[300px]' : 'h-[150px]'} w-full`} />
             </figure>
             <div className="card-body">
                 <div className='grid grid-cols-5 gap-1 items-center'>

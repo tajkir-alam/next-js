@@ -20,7 +20,7 @@ const BlogsSlide = ({ category }) => {
 
     return (
         <Swiper
-            slidesPerView={3}
+            slidesPerView={3.7}
             spaceBetween={30}
             freeMode={true}
             modules={[FreeMode]}
@@ -31,7 +31,7 @@ const BlogsSlide = ({ category }) => {
                     <SwiperSlide key={blog._id}>
                         <div className={'card card-compact rounded-xl w-fit bg-base-100'}>
                             <figure className='p-2'>
-                                <img src={blog.image} alt="Shoes" className={'rounded-xl h-[150px] w-full'} />
+                                <img src={blog.image} alt="" className={'rounded-xl h-[150px] w-full'} />
                             </figure>
                             <div className="card-body">
                                 <div className='grid grid-cols-5 gap-1 items-center'>
