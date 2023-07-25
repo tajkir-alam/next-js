@@ -1,10 +1,10 @@
 "use client";
-import moment from 'moment/moment';
+// import moment from 'moment/moment';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import 'react-tabs/style/customdesign.css';
+// import 'reclearact-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
 import { useEffect, useState } from 'react';
 import SingleBlog from '@/components/SingleBlog';
@@ -68,7 +68,7 @@ const Blog = () => {
 
         <div className='mt-5'>
           <Tabs>
-            <TabList className='text-lg mb-8'>
+            <TabList className='text-lg mb-8 cursor-pointer'>
               <Tab >All</Tab>
               <Tab >Artificial Intelligence</Tab>
               <Tab >Business</Tab>
