@@ -1,23 +1,26 @@
 "use client";
+<<<<<<< HEAD
 // import moment from 'moment/moment';
+=======
+>>>>>>> 0c2eb9a04a9aeadccc46982132c7bad3c2759141
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 // import 'reclearact-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
-import { useEffect, useState } from 'react';
 import SingleBlog from '@/components/SingleBlog';
+import Spinner from '@/components/Spinner';
+import useSWR from 'swr';
+
+
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  return res.json();
+};
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    fetch('/blogs.json')
-      .then(res => res.json())
-      .then(data => setBlogs(data.blogs))
-  }, [])
-
+  const { data: blogs } = useSWR('/api/blogs', fetcher);
 
   return (
     <section className='mt-12 pb-96'>
@@ -77,190 +80,15 @@ const Blog = () => {
 
 
             <TabPanel>
-              {/* <div className={blogStyle.masonry}>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
+              {blogs ?
+                <div className={blogStyle.masonry}>
+                  {
+                    blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
+                  }
                 </div>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
-                </div>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
-                </div>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
-                </div>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[150px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
-                </div>
-                <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-xl ${blogStyle.cardIs}`}>
-                  <figure className='p-2'>
-                    <img src="https://i.ibb.co/qpzq0F3/264cfa8205ea13e393ba8553e812db03.jpg" alt="Shoes" className='rounded-xl h-[300px] w-full' />
-                  </figure>
-                  <div className="card-body">
-                    <div className='grid grid-cols-5 gap-1 items-center'>
-                      <div className='uppercase py-[0.1rem] rounded-full text-white text-xs text-center bg-[#319DFF]'>
-                        <p className='text-[8px] tracking-widest'>Business</p>
-                      </div>
-                      <div>
-                        <h4 className='uppercase font-semibold text-xs'>Maniruzzaman</h4>
-                      </div>
-                      <div className='col-span-2 text-right text-xs'>
-                        {moment().format('D MMM, Y')}
-                      </div>
-                      <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
-                          <FaRegEye />
-                        </div>
-                        <p className='text-xs'>
-                          127K
-                        </p>
-                      </div>
-                    </div>
-                    <h2 className="card-title text-[#606060] font-normal">
-                      BIg data analysis: leveraging the business process
-                    </h2>
-                  </div>
-                </div>
-              </div> */}
-
-              <div className={blogStyle.masonry}>
-                {
-                  blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
-                }
-              </div>
-
-
+                :
+                <Spinner></Spinner>
+              }
             </TabPanel>
             <TabPanel >
               <p>
