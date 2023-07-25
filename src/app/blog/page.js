@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
-import SingleBlog from '@/components/SingleBlog';
 import Spinner from '@/components/Spinner';
 import useSWR from 'swr';
 import { useState } from 'react';
+import SingleBlog from './SingleBlog';
 
 
 
