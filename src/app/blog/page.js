@@ -7,6 +7,7 @@ import blogStyle from '@/styles/blogs.module.css';
 import SingleBlog from '@/components/SingleBlog';
 import Spinner from '@/components/Spinner';
 import useSWR from 'swr';
+import { useState } from 'react';
 
 
 
@@ -16,7 +17,8 @@ const fetcher = async (url) => {
 };
 
 const Blog = () => {
-  const { data: blogs } = useSWR('/api/blogs', fetcher);
+  const [category, setCategory] = useState('');
+  const { data: blogs } = useSWR(`/api/blogs?category=${category}`, fetcher);
 
   return (
     <section className='mt-12 pb-96'>
@@ -68,10 +70,10 @@ const Blog = () => {
         <div className='mt-5'>
           <Tabs>
             <TabList className='text-lg mb-8'>
-              <Tab >All</Tab>
-              <Tab >Artificial Intelligence</Tab>
-              <Tab >Business</Tab>
-              <Tab >Technology</Tab>
+              <Tab onClick={() => setCategory('')}>All</Tab>
+              <Tab onClick={() => setCategory('Artificial Intelligence')}>Artificial Intelligence</Tab>
+              <Tab onClick={() => setCategory('Business')}>Business</Tab>
+              <Tab onClick={() => setCategory('Technology')}>Technology</Tab>
             </TabList>
 
 
@@ -86,44 +88,38 @@ const Blog = () => {
                 <Spinner></Spinner>
               }
             </TabPanel>
-            <TabPanel >
-              <p>
-                ional Mushroom Kingdom, which is constantly under
-                attack by Bowser. She often plays the damsel in distress role within the series and
-                is the lead female. She is often portrayed as
-              </p>
-              <p>
-                Source:{' '}
-                <a href="https://en.wikipedia.org/wiki/Princess_Peach" target="_blank">
-                  Wikipedia
-                </a>
-              </p>
+            <TabPanel>
+              {blogs ?
+                <div className={blogStyle.masonry}>
+                  {
+                    blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
+                  }
+                </div>
+                :
+                <Spinner></Spinner>
+              }
             </TabPanel>
-            <TabPanel >
-              <p>
-                rld. Yoshi also appears in many of the Mario spin-off games, including
-                Mario Party and Mario Kart, various Mario sports games, and which is
-                characterized by their variety of colors.
-              </p>
-              <p>
-                Source:{' '}
-                <a href="https://en.wikipedia.org/wiki/Yoshi" target="_blank">
-                  Wikipedia
-                </a>
-              </p>
+            <TabPanel>
+              {blogs ?
+                <div className={blogStyle.masonry}>
+                  {
+                    blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
+                  }
+                </div>
+                :
+                <Spinner></Spinner>
+              }
             </TabPanel>
-            <TabPanel >
-              <p>
-                loyal attendants; constantly working on her behalf. He is usually seen as a non-player character (NPC)
-                who provides assistance to Mario and his friends in most games, but there are times when Toad(s)
-                takes center stage and appears as a protagonist, as seen in Super Mario Bros. 2,
-              </p>
-              <p>
-                Source:{' '}
-                <a href="https://en.wikipedia.org/wiki/Toad_(Nintendo)" target="_blank">
-                  Wikipedia
-                </a>
-              </p>
+            <TabPanel>
+              {blogs ?
+                <div className={blogStyle.masonry}>
+                  {
+                    blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
+                  }
+                </div>
+                :
+                <Spinner></Spinner>
+              }
             </TabPanel>
           </Tabs>
         </div>
