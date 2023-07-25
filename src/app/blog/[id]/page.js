@@ -76,6 +76,9 @@ const page = ({ params }) => {
                                 </Link>
                             </div>
                         </div>
+                        <p className="my-8 px-4">
+                            {blogs.content}
+                        </p>
                     </>
                     : <Spinner />
             }
