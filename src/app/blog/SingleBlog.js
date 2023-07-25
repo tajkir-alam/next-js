@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import blogStyle from '@/styles/blogs.module.css';
 import { FaRegEye } from 'react-icons/fa';
 import Link from 'next/link';
 
 const SingleBlog = ({ blog, index }) => {
+    const [viewCount, setViewCount] = useState('');
+
     const { _id, title, authorName, category, date, image, views } = blog;
+
+    useEffect(() => {
+        if (views < 1000) {
+            setViewCount(views)
+        }
+        else if (views < 1000000) {
+            const convertToK = `${(views / 1000).toFixed(1)}K`;
+            setViewCount(convertToK);
+        }
+        else {
+            const convertToK = `${(views / 1000000).toFixed(1)}M`;
+            setViewCount(convertToK);
+        }
+    }, [])
 
     return (
         <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-[8px_7px_23px_0px_rgba(0,0,0,0.09)] hover:shadow-[0px_0px_4px_6px_rgba(0,0,0,0.15)]  duration-300 ${blogStyle.cardIs}`}>
@@ -23,11 +39,11 @@ const SingleBlog = ({ blog, index }) => {
                         {date}
                     </div>
                     <div className='flex items-center justify-self-end gap-1 text-[#606060]'>
-                        <div>
+                        <p>
                             <FaRegEye />
-                        </div>
+                        </p>
                         <p className='text-xs'>
-                            {views}
+                            {viewCount}
                         </p>
                     </div>
                 </div>
