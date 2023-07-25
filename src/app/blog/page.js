@@ -1,25 +1,22 @@
 "use client";
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { FaRegEye } from 'react-icons/fa';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
-import { useEffect, useState } from 'react';
 import SingleBlog from '@/components/SingleBlog';
 import Spinner from '@/components/Spinner';
+import useSWR from 'swr';
+
+
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  return res.json();
+};
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/blogs')
-      .then(res => res.json())
-      .then(data => setBlogs(data))
-  }, [])
-
-  console.log(blogs);
-
+  const { data: blogs } = useSWR('/api/blogs', fetcher);
 
   return (
     <section className='mt-12 pb-96'>
@@ -79,7 +76,7 @@ const Blog = () => {
 
 
             <TabPanel>
-              {blogs.length !== 0 ?
+              {blogs ?
                 <div className={blogStyle.masonry}>
                   {
                     blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
