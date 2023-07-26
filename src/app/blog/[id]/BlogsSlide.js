@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,6 +7,7 @@ import { FreeMode } from 'swiper/modules';
 import Spinner from '@/components/Spinner';
 import { FaRegEye } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/legacy/image';
 
 const fetcher = async (url) => {
     const res = await fetch(url);
@@ -30,8 +30,12 @@ const BlogsSlide = ({ category }) => {
                 blogs.map(blog =>
                     <SwiperSlide key={blog._id}>
                         <div className={'card card-compact rounded-xl w-fit bg-base-100'}>
-                            <figure className='p-2'>
-                                <img src={blog.image} alt="" className={'rounded-xl h-[150px] w-full'} />
+                            <figure className='m-2 h-[150px] relative'>
+                                <Image
+                                    src={blog.image} alt=""
+                                    className={'rounded-xl'}
+                                    layout='fill'
+                                />
                             </figure>
                             <div className="card-body">
                                 <div className='grid grid-cols-5 gap-1 items-center'>

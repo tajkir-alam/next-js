@@ -1,4 +1,3 @@
 {
-  "extends": "next/core-web-vitals",
-  "@next/next/no-img-element": 1  // Have to remove this one. this is for adding <img /> tag without warning...
+  "extends": "next/core-web-vitals"
 }

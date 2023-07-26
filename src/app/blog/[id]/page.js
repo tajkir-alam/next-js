@@ -5,13 +5,14 @@ import React, { useEffect, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import useSWR from 'swr';
 import BlogsSlide from './BlogsSlide';
+import Image from 'next/legacy/image';
 
 const fetcher = async (url) => {
     const res = await fetch(url);
     return res.json();
 };
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const [viewCount, setViewCount] = useState('');
 
     const { data: blogs } = useSWR(`/api/blogs/${params.id}`, fetcher);
@@ -46,8 +47,12 @@ const page = ({ params }) => {
                         <div className="flex justify-between ml-2">
                             <div>
                                 <div className="flex gap-2 items-center">
-                                    <div>
-                                        <img src={blogs.authorImage} alt="" className='w-14 h-14 rounded-full border-2 border-[#319DFF]' />
+                                    <div className='w-14 h-14 rounded-full border-2 border-[#319DFF] relative'>
+                                        <Image
+                                            src={blogs.authorImage} alt=""
+                                            layout='fill'
+                                            className='rounded-full'
+                                        />
                                     </div>
                                     <div>
                                         <div className='flex gap-3 items-center'>
@@ -88,4 +93,4 @@ const page = ({ params }) => {
     );
 };
 
-export default page;
+export default Page;
