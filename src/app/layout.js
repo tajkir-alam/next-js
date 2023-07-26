@@ -1,6 +1,8 @@
+'use client'
 import Nav from '@/components/Nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { usePathname } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,12 +12,16 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const pathName = usePathname();
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className='px-2 md:px-0 md:w-4/5 mx-auto'>
-        <Nav></Nav>
-        {children}
+        <div className={`${pathName === '/login' ? '' : pathName === '/signup' ? '' : 'px-2 md:px-0 md:w-4/5 mx-auto'}`}>
+          {pathName !== '/login' && pathName !== '/signup' &&
+            <Nav></Nav>
+          }
+          {children}
         </div>
       </body>
     </html>

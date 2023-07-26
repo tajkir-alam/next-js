@@ -9,7 +9,7 @@ const page = () => {
     }
 
     return (
-        <div className='w-full h-[40rem] bg-center bg-no-repeat my-10 rounded-3xl relative' style={backgroundImageStyle}>
+        <div className='w-full h-[40rem] bg-center bg-no-repeat rounded-3xl relative' style={backgroundImageStyle}>
             <div className='absolute inset-0 bg-[rgba(0,0,0,0.3)]'></div>
         </div>
     );

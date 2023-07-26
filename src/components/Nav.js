@@ -84,7 +84,7 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end text-[#166BFF] gap-2">
                     <span><FaUserAlt className='text-2xl' /></span>
-                    <Link href={'/signin'} as={'/signin'} className='font-semibold'>SIGN IN</Link>
+                    <Link href={'/login'} as={'/login'} className='font-semibold'>SIGN IN</Link>
                 </div>
             </nav>
 

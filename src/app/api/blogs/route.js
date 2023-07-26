@@ -3,6 +3,7 @@ import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 
 export async function GET(request) {
+    console.log(request);
     try {
         const { query } = parse(request.url, true);
         const { category } = query;
