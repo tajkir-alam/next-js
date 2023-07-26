@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React from 'react';
 import { useForm } from "react-hook-form"
 import { FaRegEnvelope, FaRegUser } from 'react-icons/fa';
@@ -24,9 +25,9 @@ const Page = () => {
                         To keep connected with us please <br />
                         login with your personal info
                     </p>
-                    <button className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
+                    <Link href='/login' as='/login' className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
                         sign in
-                    </button>
+                    </Link>
                 </div>
                 <div className='w-full lg:w-[60%] py-12 lg:py-36 backdrop-sepia-0 bg-white/30'>
                     <div className="text-white">
