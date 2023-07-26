@@ -54,7 +54,7 @@ const Blog = () => {
           <h3 className='text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4ACBFF] from-25% to-[#166BFF] to-70%'>
             LATEST BLOG
           </h3>
-          <Link href={'/blog'} className="flex gap-2 items-center border-2 border-[#319DFF] rounded-3xl px-3">
+          <Link href={'/blog'} as={'/blog'} className="flex gap-2 items-center border-2 border-[#319DFF] rounded-3xl px-3">
             <p className='text-[#319DFF] text-sm'>Write a blog</p>
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -48,7 +48,7 @@ const SingleBlog = ({ blog, index }) => {
                     </div>
                 </div>
                 <h2 className="card-title text-[#606060] font-normal">
-                    <Link href={`/blog/[id]`} as={`/blog/${_id}`} className='hover:text-[#319DFF]/75 duration-300'>
+                    <Link href={`/blog/${_id}`} as={`/blog/${_id}`} className='hover:text-[#319DFF]/75 duration-300'>
                         {title}
                     </Link>
                 </h2>

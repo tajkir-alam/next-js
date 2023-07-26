@@ -58,7 +58,7 @@ const BlogsSlide = ({ category }) => {
                                     </div>
                                 </div>
                                 <h2 className="card-title text-[#606060] font-normal">
-                                    <Link href={`/blog/[id]`} as={`/blog/${blog._id}`} className='hover:text-[#319DFF]/75 duration-300'>
+                                    <Link href={`/blog/${blog._id}`} as={`/blog/${blog._id}`} className='hover:text-[#319DFF]/75 duration-300'>
                                         {blog.title}
                                     </Link>
                                 </h2>

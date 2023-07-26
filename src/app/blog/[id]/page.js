@@ -64,7 +64,7 @@ const page = ({ params }) => {
                                 </div>
                             </div>
                             <div>
-                                <Link href={'/blog'} className="flex gap-2 items-center border-2 border-[#319DFF] rounded-3xl px-3 py-1">
+                                <Link href={'/blog'} as={'/blog'} className="flex gap-2 items-center border-2 border-[#319DFF] rounded-3xl px-3 py-1">
                                     <p className='text-[#319DFF] text-sm'>Write a blog</p>
                                     <div>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

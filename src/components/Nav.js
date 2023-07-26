@@ -39,7 +39,7 @@ const Nav = () => {
             <li
                 key={link.name}
                 className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} text-white hover:text-white rounded-3xl hover:bg-[#166BFF]`}>
-                <Link href={link.href}
+                <Link href={link.href} as={link.href}
                     className={`${isActive ? 'bg-[#166BFF]' : 'bg-[#319DFF]'} text-white hover:text-white rounded-3xl hover:bg-[#166BFF]`}>
                     {link.name}
                 </Link>
@@ -61,7 +61,7 @@ const Nav = () => {
                             }
                         </ul>
                     </div>
-                    <Link href='/'>
+                    <Link href='/' as={'/'}> 
                         <div className='w-28 h-10 relative'>
                             <Image
                                 src="/logo.png"
@@ -84,7 +84,7 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end text-[#166BFF] gap-2">
                     <span><FaUserAlt className='text-2xl' /></span>
-                    <Link href={'signin'} className='font-semibold'>SIGN IN</Link>
+                    <Link href={'/signin'} as={'/signin'} className='font-semibold'>SIGN IN</Link>
                 </div>
             </nav>
 
