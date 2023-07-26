@@ -1,4 +1,3 @@
-import "server-only";
 import { NextResponse } from 'next/server';
 import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
