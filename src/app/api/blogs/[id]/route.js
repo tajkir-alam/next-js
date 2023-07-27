@@ -3,7 +3,7 @@ import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 import { ObjectId } from "mongodb";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export async function GET(request) {
     try {

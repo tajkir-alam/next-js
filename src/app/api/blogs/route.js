@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export async function GET(request) {
     console.log(request);
