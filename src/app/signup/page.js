@@ -1,6 +1,7 @@
 "use client"
 import { AuthContext } from '@/Provider/AuthProvider';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { FaRegEnvelope, FaRegUser } from 'react-icons/fa';
@@ -9,8 +10,9 @@ import Swal from 'sweetalert2';
 
 const Page = () => {
     const [Error, setError] = useState('');
+    const router = useRouter();
 
-    const { emailSignup, logOut } = useContext(AuthContext)
+    const { emailSignup, logOut, loader, setLoader } = useContext(AuthContext)
 
     const backgroundImageStyle = {
         backgroundImage: "url('/authenticationBG.png')"
@@ -32,9 +34,10 @@ const Page = () => {
         }
     })
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
+        setError('');
+        setLoader(true);
         const name = data.name;
         const email = data.email;
         const password = data.password;
@@ -53,17 +56,21 @@ const Page = () => {
                     })
                         .then(res => res.json())
                         .then(() => {
+                            router.push('/login');
                             Toast.fire({
                                 icon: 'success',
                                 title: 'Signed in successfully'
                             });
+                            reset();
                         })
                 }
+                setLoader(false);
                 logOut();
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 console.log(error.message);
+                setLoader(false)
             })
     }
 
@@ -76,9 +83,9 @@ const Page = () => {
                         To keep connected with us please <br />
                         login with your personal info
                     </p>
-                    <Link href='/login' as='/login' className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
+                    <button onClick={() => router.push('/login')} className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
                         sign in
-                    </Link>
+                    </button>
                 </div>
                 <div className='w-full lg:w-[60%] py-12 lg:py-36 backdrop-sepia-0 bg-white/30'>
                     <div className="text-white">
@@ -94,17 +101,30 @@ const Page = () => {
                                     <FaRegUser />
                                     <p>Name</p>
                                 </label>
-                                <input {...register("name")} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <input {...register("name", { required: true })} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
                                 <label htmlFor="email" className='flex gap-1 items-center'>
                                     <FaRegEnvelope />
                                     <p>Email</p>
                                 </label>
-                                <input {...register("email")} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <input {...register("email", { required: true })} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
                                 <label htmlFor="password" className='flex gap-1 items-center'>
                                     <HiOutlineLockClosed className='text-xl' />
                                     <p>Password</p>
                                 </label>
-                                <input {...register("password")} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <input {...register("password", { required: true, minLength: 5 })} type='password' className='w-full bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                {errors.password &&
+                                    <p className='text-white my-5 text-center tracking-widest font-semibold capitalize '>
+                                        Password have to be more than 6 characters.
+                                    </p>
+                                }
+                                <p className='text-white my-5 text-center tracking-widest font-semibold capitalize '>
+                                    {Error}
+                                </p>
+                                {loader &&
+                                    <p className='text-white my-5 text-center tracking-widest font-semibold capitalize '>
+                                        <span className="loading loading-bars loading-lg"></span>
+                                    </p>
+                                }
                                 <span className='flex justify-center items-center'>
                                     <input type="submit" className='btn bg-[#319DFF] rounded-3xl text-white border-0 px-12 hover:bg-[#319DFF]' />
                                 </span>

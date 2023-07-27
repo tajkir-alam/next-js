@@ -1,14 +1,18 @@
 "use client"
 import { AuthContext } from '@/Provider/AuthProvider';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { FaRegEnvelope } from 'react-icons/fa';
 import { HiOutlineLockClosed } from "react-icons/hi2";
 import Swal from 'sweetalert2';
 
 const Page = () => {
-    const { emailLogin, setLoader } = useContext(AuthContext);
+    const [Error, setError] = useState('');
+
+    const router = useRouter();
+    const { emailLogin, setLoader, loader } = useContext(AuthContext);
 
     const backgroundImageStyle = {
         backgroundImage: "url('/authenticationBG.png')"
@@ -32,7 +36,8 @@ const Page = () => {
 
     const { register, handleSubmit, reset } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
+        setError('');
+        setLoader(true);
         const email = data.email;
         const password = data.password;
 
@@ -40,7 +45,7 @@ const Page = () => {
         emailLogin(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                router.push('/blog')
                 Toast.fire({
                     icon: 'success',
                     title: 'Signed in successfully'
@@ -49,8 +54,7 @@ const Page = () => {
                 reset();
             })
             .catch(error => {
-                // console.log(error.message)
-                // setError(error.message.split('(')[1].split(')')[0].split('/')[1]);
+                setError(error.message.split('(')[1].split(')')[0].split('/')[1]);
                 setLoader(false);
             })
     }
@@ -72,12 +76,20 @@ const Page = () => {
                                     <FaRegEnvelope />
                                     <p>Email</p>
                                 </label>
-                                <input {...register("email")} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <input {...register("email", { required: true })} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
                                 <label htmlFor="password" className='flex gap-1 items-center'>
                                     <HiOutlineLockClosed className='text-xl' />
                                     <p>Password</p>
                                 </label>
-                                <input {...register("password")} className='w-full mb-5 bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <input {...register("password", { required: true })} type='password' className='w-full bg-transparent border-b-2 outline-none px-1 border-b-white' />
+                                <p className='text-white my-5 text-center tracking-widest font-semibold capitalize '>
+                                    {Error}
+                                </p>
+                                {loader &&
+                                    <p className='text-white my-5 text-center tracking-widest font-semibold capitalize '>
+                                        <span className="loading loading-bars loading-lg"></span>
+                                    </p>
+                                }
                                 <span className='flex justify-center items-center'>
                                     <input type="submit" className='btn bg-[#319DFF] rounded-3xl text-white border-0 px-12 hover:bg-[#319DFF]' />
                                 </span>
@@ -90,9 +102,9 @@ const Page = () => {
                     <p className='text-sm'>
                         Use your email address
                     </p>
-                    <Link href='/signup' as='/signup' className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
+                    <button onClick={() => router.push('/signup')} className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
                         sign up
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>

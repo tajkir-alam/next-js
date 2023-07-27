@@ -1,13 +1,17 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import navStyle from '@/styles/navbar.module.css';
 import Image from 'next/legacy/image';
 import { FaUserAlt } from "react-icons/fa";
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { AuthContext } from '@/Provider/AuthProvider';
 
 const Nav = () => {
-    const pathname = usePathname()
+    const { logOut, user } = useContext(AuthContext);
+
+    const pathname = usePathname();
+    const router = useRouter();
 
     const navLinks = [
         {
@@ -61,13 +65,11 @@ const Nav = () => {
                             }
                         </ul>
                     </div>
-                    <Link href='/' as={'/'}> 
+                    <Link href='/' as={'/'}>
                         <div className='w-28 h-10 relative'>
                             <Image
                                 src="/logo.png"
                                 alt="Uniech Logo"
-                                // width={100}
-                                // height={0}
                                 layout='fill'
                                 sizes='100'
                                 priority={true}
@@ -84,12 +86,13 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end text-[#166BFF] gap-2">
                     <span><FaUserAlt className='text-2xl' /></span>
-                    <Link href={'/login'} as={'/login'} className='font-semibold'>SIGN IN</Link>
+                    {!user ?
+                        <button onClick={() => router.push('/login')} className='font-semibold'>SIGN IN</button>
+                        :
+                        <button onClick={() => logOut()} className='font-semibold'>SIGN OUT</button>
+                    }
                 </div>
             </nav>
-
-
-            {/* Section for banner To DO  */}
         </header>
     );
 };
