@@ -1,13 +1,15 @@
 "use client"
 import { AuthContext } from '@/Provider/AuthProvider';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { FaRegEnvelope, FaRegUser } from 'react-icons/fa';
 import { HiOutlineLockClosed } from "react-icons/hi2";
 import Swal from 'sweetalert2';
 
 const Page = () => {
+    const [Error, setError] = useState('');
+
     const { emailSignup, logOut } = useContext(AuthContext)
 
     const backgroundImageStyle = {
@@ -36,18 +38,31 @@ const Page = () => {
         const name = data.name;
         const email = data.email;
         const password = data.password;
+        const userInfo = { name, email, role: 'viewer' }
         emailSignup(name, email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Signed in successfully'
-                });
+                if (user) {
+                    fetch('/api/users', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(userInfo),
+                    })
+                        .then(res => res.json())
+                        .then(() => {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Signed in successfully'
+                            });
+                        })
+                }
                 logOut();
             })
             .catch(error => {
-                // setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 console.log(error.message);
             })
     }

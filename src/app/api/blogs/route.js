@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 
-async function GET(request) {
+export async function GET(request) {
     console.log(request);
     try {
         const { query } = parse(request.url, true);
