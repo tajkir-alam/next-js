@@ -1,11 +1,15 @@
 "use client"
+import { AuthContext } from '@/Provider/AuthProvider';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form"
 import { FaRegEnvelope, FaRegUser } from 'react-icons/fa';
 import { HiOutlineLockClosed } from "react-icons/hi2";
+import Swal from 'sweetalert2';
 
 const Page = () => {
+    const { emailSignup, logOut } = useContext(AuthContext)
+
     const backgroundImageStyle = {
         backgroundImage: "url('/authenticationBG.png')"
     };
@@ -13,8 +17,40 @@ const Page = () => {
         background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0.42%, rgba(0, 0, 0, 0.50) 100%)'
     }
 
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        console.log(data)
+        const name = data.name;
+        const email = data.email;
+        const password = data.password;
+        emailSignup(name, email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                });
+                logOut();
+            })
+            .catch(error => {
+                // setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                console.log(error.message);
+            })
+    }
 
     return (
         <div className='w-full h-fit bg-center bg-no-repeat bg-cover rounded-3xl relative' style={backgroundImageStyle}>

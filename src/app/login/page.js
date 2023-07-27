@@ -18,7 +18,7 @@ const Page = () => {
 
     return (
         <div className='w-full h-fit bg-center bg-no-repeat bg-cover rounded-3xl relative' style={backgroundImageStyle}>
-            <div className="mx-4 lg:mx-44 py-20 flex flex-col items-center lg:items-stretch lg:flex-row">
+            <div className="mx-4 lg:mx-44 py-20 flex flex-col-reverse items-center lg:items-stretch lg:flex-row">
                 <div className='w-full lg:w-[60%] py-12 lg:py-36 backdrop-sepia-0 bg-white/30'>
                     <div className="text-white">
                         <div className='text-center'>
@@ -51,7 +51,7 @@ const Page = () => {
                     <p className='text-sm'>
                         Use your email address
                     </p>
-                    <Link href='/signup' as='/login' className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
+                    <Link href='/signup' as='/signup' className="btn btn-outline border-2 border-white hover:border-white text-white hover:bg-transparent rounded-3xl px-12">
                         sign up
                     </Link>
                 </div>
