@@ -3,6 +3,8 @@ import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 import { ObjectId } from "mongodb";
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request) {
     try {
         const { pathname } = parse(request.url, true);
