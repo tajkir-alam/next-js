@@ -9,13 +9,9 @@ const fetcher = async (url) => {
 
 const useRole = () => {
     const { user } = useContext(AuthContext);
-    const { data } = useSWR(`/api/users?email=${user.email}`, fetcher);
+    const { data: role } = useSWR(`/api/users?email=${user?.email}`, fetcher);
 
-    return (
-        <div>
-
-        </div>
-    );
+    return role;
 };
 
 export default useRole;

@@ -20,7 +20,6 @@ export async function POST(request) {
 export async function GET(request) {
     const { query } = parse(request.url, true);
     const { email } = query;
-    console.log(query);
 
     let filter = {};
     if (email) {
@@ -29,7 +28,7 @@ export async function GET(request) {
         }
     }
     const database = await DBConnect();
-    const users = database.collection('users');
-    const blog = await users.find(filter).toArray();
-    return NextResponse.json(blog)
+    const userCollection = database.collection('users');
+    const user = await userCollection.findOne(filter);
+    return NextResponse.json(user)
 }

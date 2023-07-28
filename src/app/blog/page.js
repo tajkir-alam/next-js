@@ -8,6 +8,7 @@ import Spinner from '@/components/Spinner';
 import useSWR from 'swr';
 import { useState } from 'react';
 import SingleBlog from './SingleBlog';
+import useRole from '@/hooks/useRole';
 
 
 
@@ -18,6 +19,8 @@ const fetcher = async (url) => {
 
 const Blog = () => {
   const [category, setCategory] = useState('');
+  const { role } = useRole();
+
   const { data: blogs } = useSWR(`/api/blogs?category=${category}`, fetcher);
 
   return (
