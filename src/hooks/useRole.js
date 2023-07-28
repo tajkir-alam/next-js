@@ -11,7 +11,7 @@ const useRole = () => {
     const { user } = useContext(AuthContext);
     const { data: role } = useSWR(`/api/users?email=${user?.email}`, fetcher);
 
-    return role;
+    return role?.role;
 };
 
 export default useRole;

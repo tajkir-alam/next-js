@@ -7,7 +7,7 @@ import AuthProvider from '@/Provider/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+const metadata = {
   title: 'Uniech Blog',
   description: 'Welcome to the blog page of Uniech',
 }
