@@ -40,16 +40,12 @@ export async function POST(request) {
 
 // increasing blog views.
 export async function PATCH(request) {
-    const previousRole = await request.json();
-    const { query } = parse(request.url, true);
+    const { query } = parse(request.url, true); // have to get it from body == request.json() ** --TO DO-- ** 
     const { email } = query;
 
     let filter = {};
-    if (email) {
-        filter = {
-            email: email,
-        }
-    };
+    // filter have to tooo doooo have to filter by id
+
     const updateUserRole = {
         $inc: {
             views: 1,
