@@ -83,7 +83,7 @@ const Blog = () => {
 
 
             <TabPanel>
-              {blogs ?
+              {blogs.length > 0 ?
                 <div className={blogStyle.masonry}>
                   {
                     blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
@@ -94,7 +94,7 @@ const Blog = () => {
               }
             </TabPanel>
             <TabPanel>
-              {blogs ?
+              {blogs.length > 0 ?
                 <div className={blogStyle.masonry}>
                   {
                     blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
@@ -105,7 +105,7 @@ const Blog = () => {
               }
             </TabPanel>
             <TabPanel>
-              {blogs ?
+              {blogs.length > 0 ?
                 <div className={blogStyle.masonry}>
                   {
                     blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
@@ -116,7 +116,7 @@ const Blog = () => {
               }
             </TabPanel>
             <TabPanel>
-              {blogs ?
+              {blogs.length > 0 ?
                 <div className={blogStyle.masonry}>
                   {
                     blogs.map((blog, index) => <SingleBlog key={index} blog={blog} index={index}></SingleBlog>)
