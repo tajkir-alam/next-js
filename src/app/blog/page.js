@@ -2,7 +2,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import 'react-tabs/style/customdesign.css';
+// import 'react-tabs/style/customdesign.css';
 import blogStyle from '@/styles/blogs.module.css';
 import Spinner from '@/components/Spinner';
 import useSWR from 'swr';
