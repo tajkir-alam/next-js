@@ -16,8 +16,7 @@ const fetcher = async (url) => {
 
 const BlogsSlide = ({ category }) => {
     const { data: blogs } = useSWR(`/api/blogs?category=${category}`, fetcher);
-    console.log(blogs);
-
+    
     return (
         <Swiper
             slidesPerView={3.7}

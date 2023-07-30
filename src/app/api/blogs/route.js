@@ -23,36 +23,16 @@ export async function GET(request) {
     }
     catch (error) {
         console.log(error.name, error.message);
+        return NextResponse.json({ error: error.message })
     }
 };
 
 
 // Individual blog is adding to the DB.
-export async function POST(request) {
-    const blog = await request.json();
-    const database = await DBConnect();
-    const blogCollection = database.collection('blogs');
-    const newBlog = await blogCollection.insertOne(blog);
-    return NextResponse.json(newBlog);
-}
-
-
-
-// increasing blog views.
-export async function PATCH(request) {
-    const { query } = parse(request.url, true); // have to get it from body == request.json() ** --TO DO-- ** 
-    const { email } = query;
-
-    let filter = {};
-    // filter have to tooo doooo have to filter by id
-
-    const updateUserRole = {
-        $inc: {
-            views: 1,
-        },
-    };
-    const database = await DBConnect();
-    const userCollection = database.collection('users');
-    const userRole = await userCollection.updateOne(filter, updateUserRole);
-    return NextResponse.json(userRole);
-}
+// export async function POST(request) {
+//     const blog = await request.json();
+//     const database = await DBConnect();
+//     const blogCollection = database.collection('blogs');
+//     const newBlog = await blogCollection.insertOne(blog);
+//     return NextResponse.json(newBlog);
+// }

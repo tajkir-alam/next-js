@@ -43,7 +43,7 @@ export async function POST(request) {
 
 // Managing user role.  Admin || User || Viewer
 export async function PATCH(request) {
-    const previousRole = await request.json();
+    const updatedRole = await request.json();
     const { query } = parse(request.url, true);
     const { email } = query;
 
@@ -55,7 +55,7 @@ export async function PATCH(request) {
     };
     const updateUserRole = {
         $set: {
-            role: previousRole,
+            role: updatedRole,
         },
     };
     const database = await DBConnect();

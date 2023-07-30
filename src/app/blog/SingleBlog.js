@@ -23,6 +23,19 @@ const SingleBlog = ({ blog, index }) => {
         }
     }, [views])
 
+    // const handleUpdateViews = (id) => {
+    //     fetch(`/api/blogs/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(id),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => console.log(data))
+    //         .catch((error) => console.error('Error updating views:', error));
+    // }
+
     return (
         <div className={`card card-compact rounded-xl w-fit bg-base-100 shadow-[8px_7px_23px_0px_rgba(0,0,0,0.09)] hover:shadow-[0px_0px_4px_6px_rgba(0,0,0,0.15)]  duration-300 ${blogStyle.cardIs}`}>
             <figure className={`relative ${(index + 1) % 2 !== 0 ? 'h-[300px]' : 'h-[150px]'} m-2`}>
@@ -52,7 +65,7 @@ const SingleBlog = ({ blog, index }) => {
                         </p>
                     </div>
                 </div>
-                <h2 className="card-title text-[#606060] font-normal">
+                <h2 onClick={() => handleUpdateViews(_id)} className="card-title text-[#606060] font-normal">
                     <Link href={`/blog/${_id}`} as={`/blog/${_id}`} className='hover:text-[#319DFF]/75 duration-300'>
                         {title}
                     </Link>
