@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
+import { ObjectId } from 'mongodb';
 
 
 // If there are query parameter then blogs are fetching by their category name. otherwise all blogs will be fetched
@@ -36,3 +37,30 @@ export async function GET(request) {
 //     const newBlog = await blogCollection.insertOne(blog);
 //     return NextResponse.json(newBlog);
 // }
+
+
+
+// To do................... #PATCH
+
+// increasing blog views.
+export async function PATCH(request) {
+    try {
+        const id = await request.json();
+        const filter = { _id: new ObjectId(id) };
+        console.log(id);
+
+        const updateUserRole = {
+            $inc: {
+                views: 1,
+            },
+        };
+        const database = await DBConnect();
+        const blogCollection = database.collection('blogs');
+        const userRole = await blogCollection.updateOne(filter, updateUserRole);
+        return NextResponse.json(userRole);
+    }
+    catch (error) {
+        console.log(error.name, error.message);
+        return NextResponse.json({ error: error.message })
+    }
+}
