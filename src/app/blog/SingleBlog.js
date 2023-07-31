@@ -65,7 +65,7 @@ const SingleBlog = ({ blog, index }) => {
                         </p>
                     </div>
                 </div>
-                <h2 onClick={() => handleUpdateViews(_id)} className="card-title text-[#606060] font-normal">
+                <h2  className="card-title text-[#606060] font-normal">
                     <Link href={`/blog/${_id}`} as={`/blog/${_id}`} className='hover:text-[#319DFF]/75 duration-300'>
                         {title}
                     </Link>
