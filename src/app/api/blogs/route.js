@@ -10,8 +10,13 @@ export async function GET(request) {
         const { query } = parse(request.url, true);
         const { category } = query;
 
+        // console.log(request.url.query, true);
+
         let filter = {};
-        if (category) {
+        if (category === '') {
+            filter = {}
+        }
+        else if (category) {
             filter = {
                 category: category,
             }
@@ -47,7 +52,6 @@ export async function PATCH(request) {
     try {
         const id = await request.json();
         const filter = { _id: new ObjectId(id) };
-        console.log(id);
 
         const updateUserRole = {
             $inc: {

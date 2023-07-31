@@ -32,7 +32,7 @@ const SingleBlog = ({ blog, index }) => {
             body: JSON.stringify(id),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            // .then((data) => console.log(data))
             .catch((error) => console.error('Error updating views:', error));
     }
 
