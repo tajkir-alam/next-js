@@ -45,8 +45,6 @@ export async function GET(request) {
 
 
 
-// To do................... #PATCH
-
 // increasing blog views.
 export async function PATCH(request) {
     try {
@@ -60,8 +58,8 @@ export async function PATCH(request) {
         };
         const database = await DBConnect();
         const blogCollection = database.collection('blogs');
-        const userRole = await blogCollection.updateOne(filter, updateUserRole);
-        return NextResponse.json(userRole);
+        const updatedViews = await blogCollection.updateOne(filter, updateUserRole);
+        return NextResponse.json(updatedViews);
     }
     catch (error) {
         console.log(error.name, error.message);

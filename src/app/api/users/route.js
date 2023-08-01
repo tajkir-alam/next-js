@@ -2,13 +2,16 @@ import DBConnect from "@/DBConnect/DBConnect";
 import { NextResponse } from "next/server";
 import { parse } from 'url';
 
-// If there are query parameter then user are fetching by their email. otherwise all users will be fetched
+// If there are query parameter then user are fetching by their email. otherwise all users will be fetched. this is also checking the user role
 export async function GET(request) {
     try {
         const { query } = parse(request.url, true);
         const { email } = query;
 
         let filter = {};
+        if (email === '') {
+            filter = {}
+        }
         if (email) {
             filter = {
                 email: email,

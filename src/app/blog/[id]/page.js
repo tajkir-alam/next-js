@@ -24,6 +24,8 @@ const Page = ({ params }) => {
         backgroundImage: `url(${blogs && blogs.image})`,
     };
 
+
+    // giving conditions so the views can show in K or M.
     useEffect(() => {
         if (blogs) {
             if (blogs.views < 1000) {

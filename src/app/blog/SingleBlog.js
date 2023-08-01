@@ -9,6 +9,8 @@ const SingleBlog = ({ blog, index }) => {
 
     const { _id, title, authorName, category, date, image, views } = blog;
 
+
+    // giving conditions so the views can show in K or M.
     useEffect(() => {
         if (views < 1000) {
             setViewCount(views)
@@ -23,6 +25,7 @@ const SingleBlog = ({ blog, index }) => {
         }
     }, [views])
 
+    // Updating views +1. 
     const handleUpdateViews = (id) => {
         fetch(`/api/blogs`, {
             method: 'PATCH',

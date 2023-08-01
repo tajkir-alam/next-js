@@ -20,6 +20,7 @@ const fetcher = async (url) => {
 const Blog = () => {
   const [category, setCategory] = useState('');
   const role = useRole();
+  // console.log(role);
 
   const { data: blogs } = useSWR(`/api/blogs?category=${category}`, fetcher);
 

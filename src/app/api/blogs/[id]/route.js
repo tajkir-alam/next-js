@@ -3,6 +3,7 @@ import DBConnect from "@/DBConnect/DBConnect";
 import { parse } from 'url';
 import { ObjectId } from "mongodb";
 
+// Blogs are fetching by their id. this API is for individual blog display.
 export async function GET(request) {
     try {
         const { pathname } = parse(request.url, true);
