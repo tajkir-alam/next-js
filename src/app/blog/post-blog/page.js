@@ -20,10 +20,10 @@ const Page = () => {
     }
 
     return (
-        <section className='mt-12 pb-28'>
-            {/* upload cover image */}
-            <div className='px-2'>
-                <input type="file" accept='image/*' ref={inputCoverImg} onChange={handleCoverImgChange} hidden />
+        <section className='mt-12 pb-28 px-2'>
+            <form>
+                {/* upload cover image */}
+                <input type="file" accept='image/*' name='coverImg' ref={inputCoverImg} onChange={handleCoverImgChange} hidden />
                 <div onClick={handleUploadButton} className='border-[5px] border-[#9de1fe] rounded-xl'>
                     {!selectedImg ?
                         <div className='text-[#717379] flex flex-col items-center py-16 cursor-pointer'>
@@ -46,7 +46,23 @@ const Page = () => {
                         </div>
                     }
                 </div>
-            </div>
+
+                {/* Blog Writing text area */}
+                <h3 className='text-[#525258]/75 text-lg ml-1 mt-6 mb-2 font-semibold tracking-wider'>Blog Title</h3>
+                <div className="grid lg:grid-cols-3 lg:gap-20">
+                    <div className='col-span-2'>
+                        <input type="text" placeholder="Type here" name='blogTitle' className="input input-bordered input-accent w-full focus:outline-none bg-transparent" />
+                    </div>
+                    <div>
+                        <select name='blogCategory' className="select select-accent w-full focus:outline-none bg-transparent">
+                            <option disabled selected>Dark mode or light mode?</option>
+                            <option>Auto</option>
+                            <option>Dark mode</option>
+                            <option>Light mode</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
         </section>
     );
 };
