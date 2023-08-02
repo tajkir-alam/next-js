@@ -1,8 +1,10 @@
 'use client'
+import dynamic from 'next/dynamic';
 import Image from 'next/legacy/image';
 import React, { useRef, useState } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 
 const Page = () => {
@@ -81,13 +83,13 @@ const Page = () => {
                 {/* Write Blog */}
                 <h3 className='text-[#525258]/75 text-lg ml-1 mt-6 mb-2 font-semibold tracking-wider'>Blog</h3>
                 {/* <div className='border-[4px] border-[#9de1fe] rounded-xl'> */}
-                    <ReactQuill
+                    {/* <ReactQuill
                         theme="snow"
                         value={value}
                         onChange={setValue}
                         modules={modules}
                         className='h-[700px] '
-                    />
+                    /> */}
                 {/* </div> */}
             </form>
         </section>
